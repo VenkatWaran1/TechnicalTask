@@ -14,11 +14,13 @@ public class MouseOverAction {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		WebDriverManager.chromedriver().setup();
+		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
 		driver.get("https://codoid.com/");
+		String title = driver.getTitle();
+		System.out.println(title);
 		
 		WebElement ourProd = driver.findElement(By.xpath("//a[text()='Our Products'][1]"));
 		Actions action = new Actions(driver);
@@ -34,7 +36,7 @@ public class MouseOverAction {
 		WebElement relNotes = driver.findElement(By.xpath("//a[text()='release notes']"));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click()", relNotes);
-		
+		driver.close();
 		
 	}
 

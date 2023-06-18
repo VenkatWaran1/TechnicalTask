@@ -16,7 +16,6 @@ public class ScreenshotTask {
 	public static void main(String[] args) throws IOException {
 		
 		
-		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
@@ -27,6 +26,8 @@ public class ScreenshotTask {
 		File dest = new File("E:\\Screenshot\\ScreenShot1.jpg");
 		
 		FileUtils.copyFile(src, dest);
+		
+		driver.close();
 		
 	}
 
