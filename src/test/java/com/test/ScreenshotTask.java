@@ -17,9 +17,10 @@ public class ScreenshotTask {
 		
 		
 		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
 		
 		driver.get("https://codoid.com/");
+		String title = driver.getTitle();
+		System.out.println(title);
 		
 		TakesScreenshot tsc = (TakesScreenshot) driver;
 		File src = tsc.getScreenshotAs(OutputType.FILE);
@@ -27,6 +28,7 @@ public class ScreenshotTask {
 		
 		FileUtils.copyFile(src, dest);
 		
+		System.out.println(title);
 		driver.close();
 		
 	}
